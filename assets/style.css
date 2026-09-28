@@ -1,0 +1,371 @@
+:root {
+  color-scheme: dark;
+  --background: #050c17;
+  --surface: #0a1728;
+  --surface-raised: #10233a;
+  --border: #1d3854;
+  --text: #f4fbff;
+  --muted: #a9c0d4;
+  --accent: #14e4d2;
+  --accent-strong: #2ba8ff;
+  --focus: #7ef7ed;
+  --measure: 72ch;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--accent-strong) var(--background);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.7;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent);
+  color: #02100f;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: color-mix(in srgb, var(--accent) 65%, transparent);
+  text-underline-offset: 0.22em;
+}
+
+a:hover {
+  text-decoration-color: var(--accent);
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 10;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.65rem 0.9rem;
+  background: var(--text);
+  color: var(--background);
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header,
+footer {
+  width: min(1180px, calc(100% - 2rem));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.site-header {
+  min-height: 88px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.72rem;
+  color: var(--text);
+  font-size: 1.06rem;
+  font-weight: 780;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.brand img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+.header-note,
+.support-line,
+footer {
+  color: var(--muted);
+}
+
+.header-nav {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.header-nav a {
+  padding: 0.5rem 0.72rem;
+  border-radius: 10px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.header-nav a:hover,
+.header-nav a[aria-current="page"] {
+  background: var(--surface-raised);
+  color: var(--text);
+}
+
+.home {
+  width: min(1060px, calc(100% - 2rem));
+  margin: clamp(4rem, 10vw, 8.5rem) auto;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 5rem);
+}
+
+.hero-mark {
+  width: clamp(130px, 18vw, 196px);
+  height: auto;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 15ch;
+  margin-bottom: 1.25rem;
+  font-size: clamp(2.65rem, 7vw, 5.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.intro p {
+  max-width: 62ch;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+}
+
+.document-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: clamp(4rem, 9vw, 7rem);
+  border-block: 1px solid var(--border);
+}
+
+.document-links > a {
+  display: flex;
+  min-height: 230px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(1.6rem, 4vw, 2.7rem);
+  color: var(--muted);
+  text-decoration: none;
+  transition: background-color 180ms ease-out, color 180ms ease-out;
+}
+
+.document-links > a + a {
+  border-left: 1px solid var(--border);
+}
+
+.document-links > a:hover {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.link-title {
+  margin-bottom: 0.75rem;
+  color: var(--text);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 760;
+  letter-spacing: -0.025em;
+}
+
+.link-action {
+  margin-top: auto;
+  padding-top: 2rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.support-line {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.support-line strong {
+  color: var(--text);
+}
+
+.legal-layout {
+  width: min(1180px, calc(100% - 2rem));
+  margin: clamp(3rem, 8vw, 7rem) auto;
+  display: grid;
+  grid-template-columns: minmax(250px, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(3rem, 8vw, 7.5rem);
+  align-items: start;
+}
+
+.legal-summary {
+  position: sticky;
+  top: 2rem;
+}
+
+.document-type {
+  margin-bottom: 1.3rem;
+  color: var(--accent);
+  font-weight: 760;
+}
+
+.legal-summary h1 {
+  max-width: 11ch;
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+}
+
+.legal-summary > p:not(.document-type) {
+  max-width: 42ch;
+  color: var(--muted);
+}
+
+.legal-summary dl {
+  margin: 2.5rem 0 0;
+  border-top: 1px solid var(--border);
+}
+
+.legal-summary dl div {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.legal-summary dt {
+  color: var(--muted);
+}
+
+.legal-summary dd {
+  margin: 0;
+  text-align: right;
+}
+
+.legal-document {
+  max-width: var(--measure);
+}
+
+.legal-document section {
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.legal-document section + section {
+  padding-top: clamp(2rem, 5vw, 3.5rem);
+  border-top: 1px solid var(--border);
+}
+
+.legal-document h2 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.legal-document p,
+.legal-document li {
+  color: #c7d9e8;
+}
+
+.legal-document ul {
+  padding-left: 1.25rem;
+}
+
+.legal-document li + li {
+  margin-top: 0.55rem;
+}
+
+footer {
+  min-height: 100px;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: var(--text);
+}
+
+@media (max-width: 760px) {
+  .header-note {
+    display: none;
+  }
+
+  .home {
+    margin-block: 3.5rem;
+  }
+
+  .intro,
+  .legal-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .intro {
+    gap: 2rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 14vw, 4rem);
+  }
+
+  .document-links {
+    grid-template-columns: 1fr;
+  }
+
+  .document-links > a + a {
+    border-top: 1px solid var(--border);
+    border-left: 0;
+  }
+
+  .legal-layout {
+    margin-top: 3rem;
+    gap: 3.5rem;
+  }
+
+  .legal-summary {
+    position: static;
+  }
+
+  .legal-summary h1 {
+    max-width: 13ch;
+  }
+
+  footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
